@@ -1,22 +1,22 @@
-#Compression Detector
+# Compression Detector
 
 This project detects if network compression is present on a network path, and is a client/server application. To see the captured packets, please
 reference the pcap files.
 
-##This project is broken down into three main phases:
+## This project is broken down into three main phases:
 
-###Pre-probing TCP Phase:
+### Pre-probing TCP Phase:
     
     For the first phase, the client sends over a configuration file containing information concerning IP addresses, ports, and packet specifications
     over a TCP connection initialized by the client.
 
-###UDP Probing Phase:
+### UDP Probing Phase:
 
     In the second phase, the client sends over two trains of UDP packets. One with low-entropy data and one with high-entropy data. The server records arrival time
     of these packets and uses the configuration file to determine whether compression is present or not within the packet trains. Note that the client waits an intermediate
     time before sending the second packet.
 
-###Post-Probing TCP Phase:
+### Post-Probing TCP Phase:
 
     Lastly, once the server determines whether or not compression is present, the server returns it's report back to the client via another TCP connection.
     The client then prints the findings of the server.
